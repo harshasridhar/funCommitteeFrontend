@@ -1,0 +1,21 @@
+<div class='container-fluid' id="carouselContainer">
+  <div class="row carouselStyle p-20">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide *ngFor="let currentCount of counts">
+        <div class="picsum-img-wrapper">
+          <app-card [count]=currentCount></app-card>
+
+          <app-card [count]=currentCount></app-card>
+
+          <app-card [count]=currentCount></app-card>
+
+          <app-card [count]=currentCount></app-card>
+        </div>
+        <!--<div class="carousel-caption">
+          <h3>No mouse navigation</h3>
+          <p>This carousel hides navigation arrows and indicators.</p>
+        </div>-->
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
