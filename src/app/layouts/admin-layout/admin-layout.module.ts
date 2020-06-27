@@ -14,6 +14,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent} from '../../pages/carousel/carousel.component';
 import { CardComponent} from '../../pages/card/card.component';
+import {QuestionsComponent} from '../../pages/questions/questions.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -33,7 +34,8 @@ import { CardComponent} from '../../pages/card/card.component';
     IconsComponent,
     MapsComponent,
     CarouselComponent,
-    CardComponent
+    CardComponent,
+    QuestionsComponent
   ]
 })
 
