@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@ng-select/ng-select/themes/ant.design.theme.css";
 img{
   max-width: 100%;
   max-height: 100%;
@@ -24,4 +23,10 @@ m-b-15{
 
 .width-100{
   width: 100%;
+}
+
+.selectStyle{
+  margin-right: 10px;
+  border-radius: 5px;
+  height: 28px;
 }
