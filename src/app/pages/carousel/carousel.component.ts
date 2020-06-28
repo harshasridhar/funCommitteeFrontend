@@ -12,21 +12,17 @@ export class CarouselComponent implements OnInit {
 
   errorMessage: String;
   usersAnswerList: any[];
-
-  selected: String;
-
   userList: any[];
 
 
-  submit(guessId) {
-    console.log(this.selected);
+  submit(selectedUser) {
     const loggedInUserName = sessionStorage.getItem('userEmail');
-    this.service.validateAnswer({username: loggedInUserName, guessId: guessId, answer: this.selected})
+    this.service.validateAnswer({username: loggedInUserName, guessId: selectedUser.id, answer: selectedUser.answer})
       .subscribe(
         (response) => {
           for (let i =  0; i < this.usersAnswerList.length; i++) {
               const user = this.usersAnswerList[i];
-              if (user.id === guessId) {
+              if (user.id === selectedUser.id) {
                 user.retriesLeft = response.retriesLeft;
                 user.status = response.status;
                 break;
@@ -51,8 +47,6 @@ export class CarouselComponent implements OnInit {
       .subscribe(
         (response) => {
           this.userList = response.list;
-          this.userList.push('Select User');
-          this.selected = 'Select User';
         },
         (error) => {
           this.errorMessage = error;

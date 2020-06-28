@@ -8,10 +8,11 @@
           <app-card [user]=user></app-card>
         </div>
         <div class="text-center">
-          <select [(ngModel)]="selected" class="selectStyle" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">
-            <option *ngFor="let item of userList">{{item}}</option>
+          <select [(ngModel)]="user.answer" class="selectStyle" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">
+            <option>Select user</option>
+            <option *ngFor="let item of userList">{{item.name}}</option>
           </select>
-          <button type="button" class="btn btn-default btn-sm" (click)="submit(user.id)" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">Submit</button>
+          <button type="button" class="btn btn-default btn-sm" (click)="submit(user)" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">Submit</button>
           <h5 class="mt-2">Attempts left: {{user.retriesLeft}}</h5>
         </div>
       </ng-template>
