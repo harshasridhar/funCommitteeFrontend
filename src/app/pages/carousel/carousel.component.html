@@ -1,20 +1,21 @@
 <div class='container-fluid' id="carouselContainer">
+
+ <h2 class="text-center">How well you know me?</h2>
   <div class="row carouselStyle p-20">
-    <ngb-carousel *ngIf="images">
-      <ng-template ngbSlide *ngFor="let currentCount of counts">
-        <div class="picsum-img-wrapper">
-          <app-card [count]=currentCount></app-card>
-
-          <app-card [count]=currentCount></app-card>
-
-          <app-card [count]=currentCount></app-card>
-
-          <app-card [count]=currentCount></app-card>
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let user of usersAnswerList">
+        <div>
+          <app-card [user]=user></app-card>
         </div>
-        <!--<div class="carousel-caption">
-          <h3>No mouse navigation</h3>
-          <p>This carousel hides navigation arrows and indicators.</p>
-        </div>-->
+        <div class="text-center">
+          <!--<ng-select [items]="items"
+                     bindLabel="name"
+                     placeholder="Select item"
+                     appendTo="body"
+                     multiple="true"
+                     [(ngModel)]="selected">
+          </ng-select>-->
+        </div>
       </ng-template>
     </ngb-carousel>
   </div>

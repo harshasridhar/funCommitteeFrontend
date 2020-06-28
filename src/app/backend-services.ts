@@ -30,6 +30,16 @@ export class BackendServices {
     );
   }
 
+  getUserAnswers(): any {
+    const username = sessionStorage.getItem('userEmail');
+    const url = this.backendUrl + '/question/answer?username=' + username;
+    return this.httpClient.get(url).pipe(
+      map(response => {
+        return response;
+      })
+    );
+  }
+
   logout() {
     sessionStorage.removeItem('token');
   }

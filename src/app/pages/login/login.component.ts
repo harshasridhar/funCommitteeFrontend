@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.service.login({username: this.userEmail, password: this.userPassword})
       .subscribe(
         (response) => {
+          sessionStorage.setItem('userEmail', this.userEmail);
           this.router.navigate(['/dashboard']);
         },
         (error) => {
