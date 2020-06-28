@@ -10,7 +10,7 @@
         <div class="text-center">
           <select [(ngModel)]="user.answer" class="selectStyle" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">
             <option>Select user</option>
-            <option *ngFor="let item of userList">{{item.name}}</option>
+            <option *ngFor="let item of userList" value="{{item.username}}">{{item.name}}</option>
           </select>
           <button type="button" class="btn btn-default btn-sm" (click)="submit(user)" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">Submit</button>
           <h5 class="mt-2">Attempts left: {{user.retriesLeft}}</h5>
