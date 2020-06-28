@@ -22,6 +22,23 @@ export class BackendServices {
       );
   }
 
+  validateAnswer(request): any {
+    return this.httpClient.post<any>(this.backendUrl + '/question/answer/submit', request)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
+
+  getAllUsers(): any {
+    return this.httpClient.get(this.backendUrl + '/user/users').pipe(
+      map(response => {
+        return response;
+      })
+    );
+  }
+
   getQuestions(): any {
     return this.httpClient.get(this.backendUrl + '/question/').pipe(
       map(response => {
@@ -41,7 +58,7 @@ export class BackendServices {
   }
 
   logout() {
-    sessionStorage.removeItem('token');
+    sessionStorage.clear();
   }
 
 }

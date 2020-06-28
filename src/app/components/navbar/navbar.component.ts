@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import {BackendServices} from '../../backend-services';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +14,18 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router, private service: BackendServices) {
+  userName: String;
+  constructor(location: Location,  private element: ElementRef, private router: Router,
+              private service: BackendServices, private data: DataService) {
     this.location = location;
   }
 
   ngOnInit() {
+    const name = sessionStorage.getItem('userName');
+    if (name) {
+      this.userName = name;
+    }
+   // this.data.currentMessage.subscribe(message => this.userName = message);
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
   getTitle() {
