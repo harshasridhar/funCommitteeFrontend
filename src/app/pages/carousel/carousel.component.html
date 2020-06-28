@@ -1,7 +1,12 @@
 <div class='container-fluid' id="carouselContainer">
 
  <h2 class="text-center">How well you know me?</h2>
+ <div style="min-width: 100%;">
+   Progress
+   <progress value="{{percentageCompletion}}" max="100" style="min-width: 100%;"></progress>
   <div class="row carouselStyle p-20">
+ </div>
+ 
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let user of usersAnswerList">
         <div>
@@ -14,6 +19,8 @@
           </select>
           <button type="button" class="btn btn-default btn-sm" (click)="submit(user)" [disabled]="user.retriesLeft === 0 || user.status === 'CORRECT'">Submit</button>
           <h5 class="mt-2">Attempts left: {{user.retriesLeft}}</h5>
+          <h5 *ngIf="user.status === 'CORRECT'" style="color: green;">Right Answer!</h5>
+          <h5 *ngIf="user.status === 'INCORRECT'" style="color: red;">Incorrect Answer!</h5>
         </div>
       </ng-template>
     </ngb-carousel>

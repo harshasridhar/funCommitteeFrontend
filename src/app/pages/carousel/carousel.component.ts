@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit {
   errorMessage: String;
   usersAnswerList: any[];
   userList: any[];
+  percentageCompletion: number;
 
 
   submit(selectedUser) {
@@ -28,6 +29,9 @@ export class CarouselComponent implements OnInit {
                 break;
               }
           }
+          this.service.getGameStatus().subscribe(response => {
+            this.percentageCompletion = Math.ceil(response.percentageCompletion);
+          })
         },
         (error) => {
           this.errorMessage = error;
@@ -61,6 +65,8 @@ export class CarouselComponent implements OnInit {
       .subscribe(
         (response) => {
           this.usersAnswerList = response.list;
+          this.percentageCompletion = Math.ceil(response.percentageCompletion);
+          console.log(this.percentageCompletion);
         },
         (error) => {
           this.errorMessage = error;

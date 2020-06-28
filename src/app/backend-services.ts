@@ -57,6 +57,13 @@ export class BackendServices {
     );
   }
 
+  getGameStatus():any{
+    const url = this.backendUrl + "/game/status";
+    return this.httpClient.get(url).pipe(
+      map(response => response)
+    )
+  }
+
   logout() {
     sessionStorage.clear();
   }
