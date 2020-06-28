@@ -24,7 +24,14 @@ export class CarouselComponent implements OnInit {
     this.service.validateAnswer({username: loggedInUserName, guessId: guessId, answer: this.selected})
       .subscribe(
         (response) => {
-          this.getUserAnswers();
+          for (let i =  0; i < this.usersAnswerList.length; i++) {
+              const user = this.usersAnswerList[i];
+              if (user.id === guessId) {
+                user.retriesLeft = response.retriesLeft;
+                user.status = response.status;
+                break;
+              }
+          }
         },
         (error) => {
           this.errorMessage = error;
