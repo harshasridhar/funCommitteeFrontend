@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BackendServices} from '../../backend-services';
 
 @Component({
   selector: 'app-questions',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: String;
+  questions: any[];
+
+  constructor(private service: BackendServices) { }
 
   ngOnInit() {
+    this.errorMessage = '';
+
+    this.service.getQuestions()
+      .subscribe(
+        (response) => {
+         const questionList = response.list;
+         this.questions = questionList.sort((a, b) => (a.id > b.id) ? 1 : -1);
+        },
+        (error) => {
+          this.errorMessage = error;
+        }
+      );
+
   }
 
 
