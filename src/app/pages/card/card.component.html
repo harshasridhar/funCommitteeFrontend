@@ -3,6 +3,7 @@
   <div class="col-xl-4 col-lg-6">
     <div class="card card-stats mb-4 mb-xl-0">
       <div class="card-body">
+        <h3 style="width: 100%; text-align: center; background-color: greenyellow;">Image Hint</h3>
         <img class="card-img-top" [src]="'../assets/img/users/' +user.id + '.jpg'" alt="Card image cap">
       </div>
     </div>
@@ -13,6 +14,7 @@
   <div class="col-xl-3 col-lg-6" *ngFor="let answer of user.list | slice:0:4">
     <div class="card card-stats mb-4 mb-xl-0">
       <div class="card-body">
+        <h4 style="width: 100%; text-align: center; background-color: gold;">{{answer.tag}}</h4>
         <img class="card-img-top" [src]="'../assets/img/carousel/' +answer.questionId + '.jpg'" alt="Card image cap">
         <h5 class="card-title" style="width: 100%; text-align: center;">{{answer.answer}}</h5>
       </div>
@@ -24,6 +26,7 @@
   <div class="col-xl-3 col-lg-6" *ngFor="let answer of user.list | slice:4:8">
     <div class="card card-stats mb-4 mb-xl-0">
       <div class="card-body">
+        <h4 style="width: 100%; text-align: center; background-color: gold;">{{answer.tag}}</h4>
         <img class="card-img-top" [src]="'../assets/img/carousel/' +answer.questionId + '.jpg'" alt="Card image cap">
         <h5 class="card-title" style="width: 100%; text-align: center;">{{answer.answer}}</h5>
       </div>
@@ -35,6 +38,7 @@
   <div class="col-xl-3 col-lg-6" *ngFor="let answer of user.list | slice:8:12">
     <div class="card card-stats mb-4 mb-xl-0">
       <div class="card-body">
+        <h4 style="width: 100%; text-align: center; background-color: gold;">{{answer.tag}}</h4>
         <img class="card-img-top" [src]="'../assets/img/carousel/' +answer.questionId + '.jpg'" alt="Card image cap">
         <h5 class="card-title" style="width: 100%; text-align: center;">{{answer.answer}}</h5>
       </div>
