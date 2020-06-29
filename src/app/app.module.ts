@@ -15,6 +15,9 @@ import { ComponentsModule } from './components/components.module';
 
 import { InterceptorService} from './interceptor.sevice';
 import {ErrorInterceptorService} from './error-interceptor.service';
+import {LoaderInterceptor} from './loader-interceptor.service';
+import {LoaderService} from './loader.service';
+import {MyLoaderComponent} from './my-loader/my-loader.component';
 
 
 @NgModule({
@@ -29,11 +32,14 @@ import {ErrorInterceptorService} from './error-interceptor.service';
     AppRoutingModule
   ],
   declarations: [
+    MyLoaderComponent,
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
   ],
   providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
   ],
